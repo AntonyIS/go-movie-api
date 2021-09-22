@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	router := gin.Defualt()
+	router := gin.Default()
 
 	router.GET("/api/v1", controller.Home)
 	router.Run("localhost:5000")
