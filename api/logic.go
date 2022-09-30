@@ -1,6 +1,10 @@
 package api
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/teris-io/shortid"
+)
 
 var (
 	ErrInvalidItem  = errors.New("invalid item")
@@ -26,6 +30,7 @@ func (ms *movieRedirectService) GetMovies() ([]Movie, error) {
 }
 
 func (ms *movieRedirectService) PostMovie(movie Movie) error {
+	movie.ID = shortid.MustGenerate()
 	return ms.movieRepo.PostMovie(movie)
 }
 
